@@ -16,9 +16,16 @@ export class AppComponent implements OnInit {
   shortestPath: string = '';
   constructor(private graphService: GraphService) {}
   ngOnInit(): void {
+    /**
+     * loading actors from graph service
+     */
     this.actors = this.graphService.getActors();
   }
 
+  /**
+   * method called when an actor
+   * is selected and button clicked
+   */
   findPath(): void {
     if (this.selectedActor) {
       this.shortestPath = this.graphService.findShortestPath(

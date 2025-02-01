@@ -4,6 +4,10 @@ import { Movie } from '../models/movie.model';
 @Injectable({
   providedIn: 'root',
 })
+/*
+Graph service to build a graph of actors and
+movies and find the shortest path to Tom Cruise.
+*/
 export class GraphService {
   private movies: Movie[] = [];
   private adjacencyList: Map<string, string[]> = new Map();
@@ -40,7 +44,6 @@ export class GraphService {
     ];
   }
 
-  // Build Graph (Actors as Nodes, Movies as Connectors)
   private buildGraph(): void {
     this.movies.forEach((movie) => {
       movie.cast.forEach((actor) => {
