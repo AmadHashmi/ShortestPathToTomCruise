@@ -59,6 +59,8 @@ export class GraphService {
         });
       });
     });
+
+    console.log(this.adjacencyList);
   }
 
   public findShortestPath(startActor: string): string {
@@ -69,6 +71,8 @@ export class GraphService {
 
     while (queue.length > 0) {
       let [actor, path] = queue.shift()!;
+
+      console.log([actor, path]);
       if (actor === 'Tom Cruise') return path.concat(actor).join(' => ');
 
       if (!visited.has(actor)) {
